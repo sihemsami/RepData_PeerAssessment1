@@ -1,25 +1,41 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
-
 
 ## Loading and preprocessing the data
 
-
+AMD<-read.csv("activity.csv",header=TRUE)
 
 ## What is mean total number of steps taken per day?
 
+AMDsum<-aggregate(.~date,data=AMD[,1:2],FUN=sum,na.action = na.pass)
+AMDsum[is.na(AMDsum)]<-0
+hist(AMDsum[,2],breaks = 10,xlab="Number of steps",main = "Total number of steps taken each day",col="lightBlue")
+AMDmean<-mean(AMDsum[,2])
+AMDmedian<-mean(AMDsum[,2])
 
 
 ## What is the average daily activity pattern?
 
-
+AMDmean<-aggregate(.~interval,data=AMD,FUN=mean)
+library(ggplot2)
+  ggplot(data=AMDmean, aes(x=interval, y=steps)) +
+  geom_area(colour="red",fill="white")+
+  xlab("5-minute interval") +
+  ylab("average number of steps taken")
 
 ## Imputing missing values
 
-
+AMDsum<-aggregate(.~date,data=AMD[,1:2],FUN=sum,na.action = na.omit)
+hist(AMDsum[,2],breaks = 10,xlab="Number of steps",main = "Total number of steps taken each day",col="lightBlue")
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+AMD[,2]<-weekdays(as.Date(AMD$date))
+AMD$date[AMD$date %in% c("Saturday", "Sunday")]<-"Weekend"
+AMD$date[AMD$date %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")]<-"Weekdays"
+averages<-aggregate(steps ~ interval + date,data=AMD,FUN=mean)
+library(ggplot2)
+ ggplot(data=averages, aes(x=interval, y=steps)) +
+geom_area(colour="red",fill="white")+facet_grid(date ~ .)+
+xlab("5-minute interval") +
+ylab("average number of steps taken")
+
+
