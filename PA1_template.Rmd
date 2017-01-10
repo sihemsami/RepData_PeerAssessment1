@@ -1,8 +1,8 @@
 
 ## Loading and preprocessing the data
-
+```{r}
 AMD<-read.csv("activity.csv",header=TRUE)
-
+```
 ## What is mean total number of steps taken per day?
 
 AMDsum<-aggregate(.~date,data=AMD[,1:2],FUN=sum,na.action = na.pass)
