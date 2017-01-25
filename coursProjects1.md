@@ -28,7 +28,7 @@ AMDsum[is.na(AMDsum)]<-0
 hist(AMDsum[,2],breaks = 10,xlab="Number of steps",main = "Total number of steps taken each day",col="lightBlue")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](https://github.com/sihemsami/RepData_PeerAssessment1/blob/master/doc/unnamed-chunk-2-1.png)
 
 ## 3 Mean and median number of steps taken each day
 
