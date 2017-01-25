@@ -59,7 +59,7 @@ library(ggplot2)
   ylab("average number of steps taken")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-5](https://github.com/sihemsami/RepData_PeerAssessment1/blob/master/doc/unnamed-chunk-5-1.png)
 
 ## 5 The 5-minute interval that, on average, contains the maximum number of steps
 
@@ -78,7 +78,7 @@ AMDsum<-aggregate(.~date,data=AMD[,1:2],FUN=sum,na.action = na.omit)
 hist(AMDsum[,2],breaks = 10,xlab="Number of steps",main = "Total number of steps taken each day",col="lightBlue")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](https://github.com/sihemsami/RepData_PeerAssessment1/blob/master/doc/unnamed-chunk-7-1.png)
 ## 7 Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
 
 ```r
@@ -93,5 +93,5 @@ xlab("5-minute interval") +
 ylab("average number of steps taken")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
+![plot of chunk unnamed-chunk-8](https://github.com/sihemsami/RepData_PeerAssessment1/blob/master/doc/unnamed-chunk-8-1.png)
 
